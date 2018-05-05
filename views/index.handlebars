@@ -1,13 +1,14 @@
  <div class = "container">
         <div class="row justify-content-center">
-                <div class="col-4">
-                    <img src="..." class="img-fluid" alt="burger image">
+                <div class="col-5" id = "createCenterForm">
+                    <img src="/assets/img/4-2-burger-png-file.png_400x400.png" class="img-fluid" alt="burger image">
                 
                     <h2>Eat-da-burger!</h2>
                  <form class="create-update-form" action="/" method="POST" id="updateForm">
                     <div class="form-group">
                             <label>Create Your Own Burger</label>
                             <input type= "text" placeholder="My burger" name="burger_name">
+                          
                             <br>
                             <button type="submit" class="btn btn-primary" id = "submitBurger">Submit</button>
                         </div>
@@ -15,8 +16,8 @@
                 </div>
                 </div>
     <div class="row justify-content-between">
-        <div class="col-4" id = "availableBurgers">
-          Available
+        <div class="col-3" id = "availableBurgers">
+         <h5> Ready to be Devoured: </h5>
          
           <ul>
           {{#each burgers}}
@@ -26,15 +27,16 @@
 
                 <form action="/{{this.id}}?_method=PUT" method="POST" id="devourForm">
                   <input id="burgerDisplay" type="hidden" name="devoured" value="true">
-                  <button type="submit" id="devourButton">Devour it!</button>
+                  <button type="submit" class="btn btn-warning" id="devourButton">Devour it! 🍔 </button>
                 </form>
               </li>
             {{/unless}}
           {{/each}}
         </ul>
         </div>
-        <div class="col-4" id = "devouredBurgers">
-          Devoured!
+
+        <div class="col-3" id = "devouredBurgers">
+         <h5> Devoured!</h5>
          
            <ul>
           {{#each burgers}}
@@ -44,7 +46,7 @@
 
                 <form action="/{{this.id}}?_method=PUT" method="POST" id="orderAgainForm">
                   <input type="hidden" name="devoured" value="false">
-                  <button type="submit" id="orderAgainButton">Order Another!</button>
+                  <button type="submit" class="btn btn-warning" id="orderAgainButton">Order Again! ☝🏽</button>
                 </form>
               </li>
             {{/if}}
