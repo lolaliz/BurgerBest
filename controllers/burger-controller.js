@@ -3,7 +3,6 @@ var router = express.Router();
 
 var burger = require("../models/burger.js");
 
-//create router for the app: show all burgers(get), create new burger(post), devour burger(post)
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
       var hbsObject = {
@@ -38,6 +37,4 @@ router.get("/", function(req, res) {
       });
   });
 
-
-// Export routes for server.js
 module.exports = router; 
